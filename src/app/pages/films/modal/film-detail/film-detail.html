@@ -1,0 +1,13 @@
+@if (movie) {
+<div class="film-detail">
+    <img [src]="movie.attributes.poster" [alt]="movie.attributes.title" class="film-detail__poster">
+
+    <h2>{{ movie.attributes.title }}</h2>
+
+    <p>{{ movie.attributes.summary }}</p>
+
+    <a [href]="movie.attributes.trailer" target="_blank" rel="noopener noreferrer">
+        Ver tráiler en YouTube
+    </a>
+</div>
+}

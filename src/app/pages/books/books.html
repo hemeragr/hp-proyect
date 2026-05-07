@@ -1,1 +1,53 @@
-<p>books works!</p>
+@if (books.length > 0) {
+<div class="box__container">
+    <div class="books__list">
+        @for (book of books; track book.id) {
+        <div class="book__item">
+            <button class="book__header" (click)="toggleBook(book.id)">
+                <h2 class="book__title">
+                    {{ book.attributes.title }}
+                </h2>
+
+                <span class="book__arrow">
+                    {{ openedBookId === book.id ? '⌃' : '⌄' }}
+                </span>
+            </button>
+
+            @if (openedBookId === book.id) {
+            <div class="book__content">
+                <div class="book__cover-block">
+                    <img class="book__cover" [src]="book.attributes.cover" [alt]="book.attributes.title" />
+
+                    <p class="book__dedication">
+                        {{ book.attributes.dedication }}
+                    </p>
+                </div>
+
+                <div class="book__info">
+                    <p class="book__author">
+                        {{ book.attributes.author }}
+                    </p>
+
+                    <p class="book__summary">
+                        {{ book.attributes.summary }}
+                    </p>
+
+                    <div class="book__data">
+                        <p>
+                            <strong>Cantidad de páginas:</strong><br />
+                            {{ book.attributes.pages }}
+                        </p>
+
+                        <p>
+                            <strong>Cantidad de capítulos:</strong><br />
+                            {{ book.relationships.chapters.data.length }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+        }
+    </div>
+</div>
+}

@@ -1,1 +1,33 @@
-<p>films works!</p>
+@if (films.length > 0) {
+<div class="box__container">
+    <div class="films__container">
+        @for (film of films; track film.id) {
+        <div class="film__card" (click)="openFilmsDetails(film)">
+            <img class="film__poster" [src]="film.attributes.poster" [alt]="film.attributes.title" />
+
+            <h2 class="film__title">
+                {{ film.attributes.title }}
+            </h2>
+        </div>
+        }
+    </div>
+
+    @if (selectedFilm) {
+    <div class="film__details">
+        <h2>{{ selectedFilm.attributes.title }}</h2>
+
+        <p>{{ selectedFilm.attributes.summary }}</p>
+
+        <p>
+            <strong>Director:</strong>
+            {{ selectedFilm.attributes.directors.join(', ') }}
+        </p>
+
+        <p>
+            <strong>Duración:</strong>
+            {{ selectedFilm.attributes.running_time }}
+        </p>
+    </div>
+    }
+</div>
+}
