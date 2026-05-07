@@ -3,15 +3,24 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
+  standalone: true,
   imports: [],
   templateUrl: './navbar.html',
-  styleUrl: './navbar.scss',
+  styleUrls: ['./navbar.scss'],
 })
 export class Navbar {
 
   private router = inject(Router);
 
-  navigateTo(url: string) {
+  get isHome(): boolean {
+    return this.router.url === '/' || this.router.url === '/main';
+  }
+
+  navigateTo(url: string): void {
     this.router.navigate([url]);
   }
+  isActive(route: string): boolean {
+    return this.router.url.includes(route);
+  }
+
 }

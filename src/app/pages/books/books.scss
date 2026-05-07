@@ -3,68 +3,51 @@
     min-height: 100vh;
     background: #111;
     color: #fff;
-    padding: 90px 20px 60px;
+    padding: 95px 20px 60px;
 }
 
 .box__container {
-    width: min(92%, 920px);
+    width: min(86%, 900px);
     margin: 0 auto;
 }
 
-.books__list {
-    background: #171719;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.book__item {
-    border-bottom: 1px solid #34343a;
-
-    &:last-child {
-        border-bottom: none;
+:host ::ng-deep {
+    .books-accordion {
+        display: block;
+        width: 100%;
+        background: #171719;
+        border-radius: 4px;
+        overflow: hidden;
     }
-}
 
-.book__header {
-    width: 100%;
-    min-height: 34px;
-    padding: 0 10px;
-    border: 0;
-    background: #171719;
-    color: inherit;
+    .p-accordionpanel {
+        border-bottom: 1px solid #34343a;
+        background: #171719;
+    }
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
+    .p-accordionheader {
+        min-height: 38px;
+        padding: 10px 12px;
+        background: #171719;
+        color: #aaaab5;
+        font-size: 18px;
+        font-weight: 700;
+    }
 
-    cursor: pointer;
-    transition: background 0.2s ease;
-
-    &:hover {
+    .p-accordionheader:hover {
         background: #202024;
+        color: #d4af37;
     }
-}
 
-.book__title {
-    margin: 0;
-    font-size: clamp(14px, 2vw, 18px);
-    font-weight: 800;
-    line-height: 1.2;
-    color: #aaaab5;
-    text-align: left;
-}
-
-.book__arrow {
-    flex-shrink: 0;
-    color: #9ca3af;
-    font-size: 13px;
+    .p-accordioncontent-content {
+        background: #111;
+        padding: 0;
+    }
 }
 
 .book__content {
-    padding: 14px 14px 18px;
-    border: 1px solid #16a085;
-    border-top: none;
+    padding: 18px;
+    border-top: 1px solid #16a085;
     background: #111;
 
     display: grid;
@@ -74,62 +57,41 @@
 
 .book__cover {
     width: 145px;
-    height: 205px;
     object-fit: cover;
     display: block;
+}
+
+.book__dedication,
+.book__author,
+.book__summary,
+.book__data p {
+    font-size: 13px;
+    line-height: 1.35;
 }
 
 .book__dedication {
     width: 145px;
     margin: 12px 0 0;
-    font-size: 13px;
-    line-height: 1.2;
-    color: #fff;
-}
-
-.book__author {
-    margin: 8px 0 4px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #fff;
 }
 
 .book__summary {
     max-width: 520px;
     margin: 0;
-    font-size: 13px;
-    line-height: 1.25;
-    color: #fff;
 }
 
 .book__data {
     margin-top: 34px;
     display: grid;
     gap: 24px;
-
-    p {
-        margin: 0;
-        font-size: 13px;
-        line-height: 1.25;
-    }
-
-    strong {
-        font-weight: 800;
-    }
 }
 
 @media (max-width: 700px) {
+    .box__container {
+        width: 94%;
+    }
+
     .book__content {
         grid-template-columns: 1fr;
         gap: 20px;
-    }
-
-    .book__cover,
-    .book__dedication {
-        width: 130px;
-    }
-
-    .book__cover {
-        height: 185px;
     }
 }

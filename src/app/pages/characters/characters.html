@@ -11,11 +11,12 @@
 
     @if(characters.length > 0) {
     <form class="filters" [formGroup]="filterForm" (ngSubmit)="search()">
-        <input pInputText type="text" placeholder="Nombre" formControlName="name_cont" class="filter filter--name" />
+        <input pInputText type="text" placeholder="Nombre" formControlName="name_cont"
+            class="filters__filter filters__filter--name" />
 
         <div class="filters__row">
-            <input pInputText type="text" placeholder="Origen" formControlName="nationality_eq" class="filter" />
-
+            <input pInputText type="text" placeholder="Origen" formControlName="nationality_eq"
+                class="filters__filter" />
             <p-select [options]="bloodOptions" formControlName="blood_status_cont" optionLabel="label"
                 optionValue="value" placeholder="Tipo de sangre" class="filter-select"></p-select>
 
@@ -33,7 +34,7 @@
     </form>
 
     <p-table [value]="characters" styleClass="characters-table">
-        <ng-template pTemplate="header">
+        <ng-template #header>
             <tr>
                 <th>Nombre</th>
                 <th>Imagen</th>
@@ -44,7 +45,7 @@
             </tr>
         </ng-template>
 
-        <ng-template pTemplate="body" let-char>
+        <ng-template #body let-char>
             <tr>
                 <td>{{ char.attributes.name || 'No Information' }}</td>
 
@@ -74,7 +75,8 @@
 
     <div class="paginator__container">
         <div class="card flex justify-center">
-            <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="120" />
+            <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows"
+                [totalRecords]="totalRecords" class="paginator"></p-paginator>
         </div>
     </div>
 

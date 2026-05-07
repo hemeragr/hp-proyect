@@ -33,7 +33,7 @@ export class Characters implements OnInit {
   page: number = 1;
   isLoading: boolean = true;
   first: number = 0;
-  rows: number = 0;
+  rows: number = 100;
   totalRecords: number = 5;
 
 
@@ -71,7 +71,8 @@ export class Characters implements OnInit {
         next: (res) => {
           this.isLoading = false;
           this.characters = res.body?.data ?? [];
-          this.totalRecords = res.body?.meta.pagination.records ?? 0; this.rows = this.characters.length;
+          this.totalRecords = res.body?.meta.pagination.records ?? 0;
+          this.rows = this.characters.length;
         },
         error: (err) => {
           console.error('Error al cargar personajes:', err);

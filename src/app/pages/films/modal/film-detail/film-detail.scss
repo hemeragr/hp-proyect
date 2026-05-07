@@ -11,66 +11,67 @@
     color: #ffffff;
 
     text-align: center;
-}
 
-.film-detail__poster {
-    width: 100%;
-    max-width: 300px;
 
-    border-radius: 16px;
+    &__poster {
+        width: 100%;
+        max-width: 300px;
 
-    object-fit: cover;
+        border-radius: 16px;
 
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        object-fit: cover;
 
-    transition: transform 0.3s ease;
-}
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 
-.film-detail__poster:hover {
-    transform: scale(1.02);
-}
+        transition: transform 0.3s ease;
+    }
 
-.film-detail h2 {
-    margin: 0;
+    &__poster:hover {
+        transform: scale(1.02);
+    }
 
-    font-size: 2rem;
-    font-weight: 700;
+    &__title {
+        margin: 0;
 
-    color: #f5c518;
-}
+        font-size: 1.6rem;
 
-.film-detail p {
-    margin: 0;
+        color: #f5c518;
 
-    font-size: 1rem;
-    line-height: 1.6;
 
-    color: #d1d1d1;
-}
+    }
 
-.film-detail a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    &__summary {
+        margin: 0;
 
-    padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+        line-height: 1.6;
 
-    border-radius: 12px;
+        color: #d1d1d1;
+    }
 
-    background: #ff0000;
-    color: #ffffff;
+    &__trailer {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
-    text-decoration: none;
-    font-weight: 600;
+        padding: 0.9rem 1.5rem;
 
-    transition:
-        background 0.3s ease,
-        transform 0.3s ease;
-}
+        border-radius: 12px;
 
-.film-detail a:hover {
-    background: #cc0000;
-    transform: translateY(-2px);
+        background: #ff0000;
+        color: #ffffff;
+
+
+        transition:
+            background 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    &__trailer:hover {
+        background: #cc0000;
+        transform: translateY(-2px);
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -78,11 +79,11 @@
         padding: 1.5rem;
     }
 
-    .film-detail h2 {
+    .film-detail__title {
         font-size: 1.5rem;
     }
 
-    .film-detail p {
+    .film-detail__summary {
         font-size: 0.95rem;
     }
 }

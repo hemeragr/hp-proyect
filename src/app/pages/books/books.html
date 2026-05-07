@@ -1,53 +1,48 @@
 @if (books.length > 0) {
 <div class="box__container">
-    <div class="books__list">
-        @for (book of books; track book.id) {
-        <div class="book__item">
-            <button class="book__header" (click)="toggleBook(book.id)">
-                <h2 class="book__title">
-                    {{ book.attributes.title }}
-                </h2>
+    <p-accordion class="books-accordion">
+        @for (book of books; track book.id; let i = $index) {
+        <p-accordion-panel [value]="i.toString()">
+            <p-accordion-header>
+                {{ book.attributes.title }}
+            </p-accordion-header>
 
-                <span class="book__arrow">
-                    {{ openedBookId === book.id ? '⌃' : '⌄' }}
-                </span>
-            </button>
+            <p-accordion-content>
+                <div class="book__content">
+                    <div class="book__cover-block">
+                        <img class="book__cover" [src]="book.attributes.cover || 'assets/images/Questions.png'"
+                            [alt]="book.attributes.title" />
 
-            @if (openedBookId === book.id) {
-            <div class="book__content">
-                <div class="book__cover-block">
-                    <img class="book__cover" [src]="book.attributes.cover" [alt]="book.attributes.title" />
-
-                    <p class="book__dedication">
-                        {{ book.attributes.dedication }}
-                    </p>
-                </div>
-
-                <div class="book__info">
-                    <p class="book__author">
-                        {{ book.attributes.author }}
-                    </p>
-
-                    <p class="book__summary">
-                        {{ book.attributes.summary }}
-                    </p>
-
-                    <div class="book__data">
-                        <p>
-                            <strong>Cantidad de páginas:</strong><br />
-                            {{ book.attributes.pages }}
-                        </p>
-
-                        <p>
-                            <strong>Cantidad de capítulos:</strong><br />
-                            {{ book.relationships.chapters.data.length }}
+                        <p class="book__dedication">
+                            {{ book.attributes.dedication || 'No Information' }}
                         </p>
                     </div>
+
+                    <div class="book__info">
+                        <p class="book__author">
+                            {{ book.attributes.author || 'No Information' }}
+                        </p>
+
+                        <p class="book__summary">
+                            {{ book.attributes.summary || 'No Information' }}
+                        </p>
+
+                        <div class="book__data">
+                            <p>
+                                <strong>Cantidad de páginas:</strong><br />
+                                {{ book.attributes.pages || 'No Information' }}
+                            </p>
+
+                            <p>
+                                <strong>Cantidad de capítulos:</strong><br />
+                                {{ book.relationships.chapters.data.length || 'No Information' }}
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            }
-        </div>
+            </p-accordion-content>
+        </p-accordion-panel>
         }
-    </div>
+    </p-accordion>
 </div>
 }

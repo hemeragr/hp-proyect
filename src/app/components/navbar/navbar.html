@@ -1,12 +1,23 @@
-<div class="navbar__container">
+<div class="navbar__container" [class.navbar__container--home]="isHome">
     <div class="navbar__left">
-        <img src="assets/icons/harry_potter_icon.png" alt="logo" class="navbar__left--logo">
+        <img src="assets/icons/harry_potter_icon.png" alt="logo" class="navbar__left--logo"
+            (click)="navigateTo('main')">
+
+        <p class="navbar__left--title hp-tipography" (click)="navigateTo('main')">
+            Hemera Guerrero Ros
+        </p>
     </div>
-    <div class="navbar__right">
-        <div class="navbar__right--link" (click)="navigateTo('books')">Libros</div>
-        <div class="navbar__right--link" (click)="navigateTo('characters')">Personajes</div>
-        <div class="navbar__right--link" (click)="navigateTo('films')">Peliculas</div>
-        <div class="navbar__right--link" (click)="navigateTo('potions')">Pociones</div>
-        <div class="navbar__right--link" (click)="navigateTo('spells')">Hechizos</div>
-    </div>
+
+    <nav class="navbar__right">
+        <div class="navbar__right--link" [class.navbar__right--link--active]="isActive('books')"
+            (click)="navigateTo('books')">Libros</div>
+        <div class="navbar__right--link" [class.navbar__right--link--active]="isActive('characters')"
+            (click)="navigateTo('characters')">Personajes</div>
+        <div class="navbar__right--link" [class.navbar__right--link--active]="isActive('films')"
+            (click)="navigateTo('films')">Películas</div>
+        <div class="navbar__right--link" [class.navbar__right--link--active]="isActive('potions')"
+            (click)="navigateTo('potions')">Pociones</div>
+        <div class="navbar__right--link" [class.navbar__right--link--active]="isActive('spells')"
+            (click)="navigateTo('spells')">Hechizos</div>
+    </nav>
 </div>

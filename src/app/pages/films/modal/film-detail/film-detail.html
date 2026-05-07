@@ -2,11 +2,15 @@
 <div class="film-detail">
     <img [src]="movie.attributes.poster" [alt]="movie.attributes.title" class="film-detail__poster">
 
-    <h2>{{ movie.attributes.title }}</h2>
+    <h2 class="film-detail__title hp-tipography">
+        {{ movie.attributes.title }}
+    </h2>
 
-    <p>{{ movie.attributes.summary }}</p>
+    <p class="film-detail__summary">
+        {{ movie.attributes.summary }}
+    </p>
 
-    <a [href]="movie.attributes.trailer" target="_blank" rel="noopener noreferrer">
+    <a class="film-detail__trailer" [href]="movie.attributes.trailer" target="_blank" rel="noopener noreferrer">
         Ver tráiler en YouTube
     </a>
 </div>
